@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="listner"
+            type="com.app.mymainapp.listeners.OnItemClickListener" />
+
+        <variable
+            name="item"
+            type="com.app.mymainapp.dummyuimodels.OrderListModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        app:cardBackgroundColor="@color/white"
+        app:strokeColor="#FFFFFF"
+        app:strokeWidth="3dp"
+        android:onClick="@{()->listner.onItemClick(`root`,item)}"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_order_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="11dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="13sp"
+                tools:text="Order ID - FM63862"
+                android:textColor="#DE000000"
+                android:text="@{item.orderUserId}"
+                />
+
+            <View
+                android:id="@+id/view_line_1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#F5F5F5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_order_id"
+                android:layout_marginTop="9dp"
+                />
+
+            <TextView
+                android:id="@+id/text_user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_line_1"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="12dp"
+                android:textSize="17sp"
+                android:textColor="#DE000000"
+                tools:text="Ronny John"
+                android:text="@{item.userName}"
+                android:fontFamily="@font/inter_semi_bold"
+                app:layout_constraintEnd_toStartOf="@+id/view_line_3"
+                />
+
+            <TextView
+                android:id="@+id/text_user_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/inter_regular"
+                android:lineSpacingExtra="2dp"
+                android:maxLines="2"
+                android:textColor="#DE000000"
+                android:textSize="14sp"
+                android:text="@{item.orderAddress}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/view_line_3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_user_name"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Chembakam (H), Nalukettu Road, PO Koratty" />
+
+            <View
+                android:id="@+id/view_line_2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#F5F5F5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_user_address"
+                android:layout_marginTop="30dp"
+                />
+
+            <ImageView
+                android:id="@+id/image_phone_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_line_1"
+                app:layout_constraintBottom_toTopOf="@+id/view_line_2"
+                android:src="@drawable/ic_phone_call"
+                android:layout_marginEnd="33dp"
+                />
+
+            <View
+                android:id="@+id/view_line_3"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="#F5F5F5"
+                app:layout_constraintTop_toBottomOf="@+id/view_line_1"
+                app:layout_constraintBottom_toTopOf="@+id/view_line_2"
+                app:layout_constraintEnd_toStartOf="@+id/image_phone_call"
+                android:layout_marginEnd="33dp"
+                />
+
+
+            <TextView
+                android:id="@+id/text_amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_line_2"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="14dp"
+                android:fontFamily="@font/inter_bold"
+                android:textColor="#DE000000"
+                tools:text="₹ 1200"
+                android:text="@{item.orderPay}"
+                android:textSize="16sp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/text_payment_status"
+                />
+
+            <TextView
+                android:id="@+id/text_payment_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/text_amount"
+                app:layout_constraintBottom_toBottomOf="@+id/text_amount"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="#1BA400"
+                tools:text="Paid"
+                android:textSize="14sp"
+                android:fontFamily="@font/inter_bold"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintStart_toEndOf="@+id/text_amount"
+                android:drawableStart="@drawable/ic_paid"
+                android:drawablePadding="5dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/delivery"
+        android:icon="@drawable/ic_delivery"
+        android:title="@string/delivery"
+        android:checkable="true"
+        android:checked="true"
+        />
+    <item
+        android:id="@+id/credit"
+        android:icon="@drawable/ic_credit_card"
+        android:title="@string/credit"
+        android:checkable="true"
+        android:checked="true"
+        />
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/ic_avatar"
+        android:title="@string/account"
+        android:checkable="true"
+        android:checked="true"
+        />
+</menu>
