@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="item"
+            type="com.app.mymainapp.dummyuimodels.ReturnItemModel" />
+
+
+        <variable
+            name="listener"
+            type="com.app.mymainapp.listeners.OnItemClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:textSize="14sp"
+            android:text="@{item.productName}"
+            android:textColor="#000000"
+            tools:text="Tostitos Scoops Spicy"
+            android:fontFamily="@font/spf_regular"
+            />
+
+        <TextView
+            android:id="@+id/text_return_quality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="16dp"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="@string/return_quantity"
+            tools:text="Return Quantity"
+            android:fontFamily="@font/inter_medium"
+            android:layout_marginEnd="20dp"
+            />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_add_remove_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_return_quality"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="6dp"
+            >
+
+            <ImageView
+                android:id="@+id/image_remove_circle"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_minus_circle"
+                android:onClick="@{()->listener.onItemClick(`remove`,item)}"
+                />
+
+            <TextView
+                android:id="@+id/text_product_count_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/image_remove_circle"
+                app:layout_constraintTop_toTopOf="@+id/image_remove_circle"
+                app:layout_constraintBottom_toBottomOf="@+id/image_remove_circle"
+                android:fontFamily="@font/spf_semi_bold"
+                android:textColor="@color/colorText"
+                android:textSize="16sp"
+                tools:text="3"
+                android:text="@{Integer.toString(item.returnQuantity)}"
+                android:layout_marginStart="15dp"
+                />
+
+            <ImageView
+                android:id="@+id/image_add_circle"
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                app:layout_constraintStart_toEndOf="@+id/text_product_count_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_add_circle"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="15dp"
+                android:onClick="@{()->listener.onItemClick(`add`,item)}"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/text_product_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/text_product_name"
+            app:layout_constraintTop_toBottomOf="@+id/text_product_name"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:fontFamily="@font/spf_regular"
+            android:layout_marginTop="5dp"
+            tools:text="Black"
+            android:text="@{item.productColor}"
+            />
+
+        <TextView
+            android:id="@+id/text_product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/text_product_color"
+            app:layout_constraintTop_toBottomOf="@+id/text_product_color"
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/spf_bold"
+            android:textSize="15sp"
+            tools:text="₹44,999"
+            android:text="@{Double.toString(item.productPrice)}"
+            android:layout_marginTop="5dp"
+            />
+
+        <View
+            android:id="@+id/view_line_1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_product_price"
+            android:background="#EDEDED"
+            android:layout_marginTop="16dp"
+            />
+
+        <TextView
+            android:id="@+id/text_order_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_line_1"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/inter_medium"
+            tools:text="Order Quantity:"
+            android:layout_marginTop="11dp"
+            android:text="Order Quantity: "
+            />
+
+        <TextView
+            android:id="@+id/text_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/inter_semi_bold"
+            android:textColor="@color/colorText"
+            android:textSize="14sp"
+            android:text="@{Integer.toString(item.orderQuantity)}"
+            app:layout_constraintBottom_toBottomOf="@+id/text_order_quantity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/text_order_quantity"
+            app:layout_constraintTop_toTopOf="@+id/text_order_quantity"
+            tools:text="17" />
+
+        <View
+            android:id="@+id/view_line_bottom"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_quantity"
+            android:layout_marginTop="10dp"
+            android:background="#EDEDED"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

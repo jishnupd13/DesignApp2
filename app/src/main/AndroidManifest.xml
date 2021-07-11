@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.delivery.OrderDetailsActivity"></activity>
+        <activity android:name=".ui.delivery.ReturnItemActivity"></activity>
+        <activity android:name=".ui.delivery.OrderDetailsActivity" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:screenOrientation="portrait" />

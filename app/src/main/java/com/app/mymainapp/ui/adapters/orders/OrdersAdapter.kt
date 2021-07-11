@@ -55,6 +55,7 @@ class OrdersAdapter(val onItemClickListener: OnItemClickListener) :
         val data = differ.currentList[position]
         val binding = holder.itemBinding
         binding.item=data
+        binding.listner=onItemClickListener
         when (data.orderStatus) {
 
             OrderStatus.PAID -> {

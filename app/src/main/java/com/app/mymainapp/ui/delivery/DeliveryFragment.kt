@@ -42,13 +42,16 @@ class DeliveryFragment(val activityListeners: ActivityListeners) :
 
     }
 
+
     override fun onClick(view: View?) {
         when (view) {
             binding.imageOptions -> {
                 activityListeners.visibleOptions()
             }
+
         }
     }
+
 
     private fun setUpOrder() {
         orderList.add(
@@ -99,6 +102,7 @@ class DeliveryFragment(val activityListeners: ActivityListeners) :
             "root"->{
                 val deliveryIntent= Intent(context,OrderDetailsActivity::class.java)
                 startActivity(deliveryIntent)
+                activity?.overridePendingTransition(0,0)
             }
         }
     }

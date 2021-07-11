@@ -36,6 +36,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:src="@drawable/ic_back"
                 android:padding="14dp"
+                android:onClick="@{listener::onClick}"
                 android:contentDescription="@string/app_name"
                 />
 
@@ -59,7 +60,7 @@
 
 
         <androidx.core.widget.NestedScrollView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:fillViewport="true"
             android:fitsSystemWindows="true"
@@ -537,7 +538,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layout_button_container"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/layout_customer_details"
@@ -564,6 +565,8 @@
                         android:paddingTop="13dp"
                         android:paddingBottom="13dp"
                         android:layout_marginTop="131dp"
+                        android:layout_marginBottom="22dp"
+                        android:onClick="@{listener::onClick}"
                         />
 
 
