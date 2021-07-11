@@ -12,4 +12,17 @@
     <string name="account">Account</string>
     <string name="order_list">Order List</string>
     <string name="_30_orders">30 Orders</string>
+    <string name="order_details">Order Details</string>
+    <string name="four_cheese_alfredo_sauce">Four Cheese Alfredo Sauce</string>
+    <string name="_1pkt">1Pkt</string>
+    <string name="farms_breaded_chicken_breast">Farms Breaded Chicken Breast</string>
+    <string name="_1_kg">1 Kg</string>
+    <string name="farms_breaded_chicken">Farms Breaded Chicken</string>
+    <string name="_50_no">50 No</string>
+    <string name="price_details">Price Details</string>
+    <string name="_1200">₹ 1200</string>
+    <string name="paid">Paid</string>
+    <string name="customer_details">Customer Details</string>
+    <string name="chembakam_h_nalukettu_road_po_koratty">Chembakam (H), Nalukettu Road, PO Koratty</string>
+    <string name="return_item">Return Item</string>
 </resources>

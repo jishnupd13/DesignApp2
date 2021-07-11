@@ -1,7 +1,7 @@
 package com.app.mymainapp.ui.delivery
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.ContextMenu
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.Fragment
@@ -18,7 +18,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class DeliveryFragment(val activityListeners: ActivityListeners) : Fragment(R.layout.fragment_delivery), View.OnClickListener,
+class DeliveryFragment(val activityListeners: ActivityListeners) :
+    Fragment(R.layout.fragment_delivery), View.OnClickListener,
     OnItemClickListener {
 
     private val binding: FragmentDeliveryBinding by viewBinding()
@@ -27,7 +28,7 @@ class DeliveryFragment(val activityListeners: ActivityListeners) : Fragment(R.la
 
     private lateinit var adapterOrdersAdapter: OrdersAdapter
 
-    private var isVisibleOptions=false
+    private var isVisibleOptions = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,8 +43,8 @@ class DeliveryFragment(val activityListeners: ActivityListeners) : Fragment(R.la
     }
 
     override fun onClick(view: View?) {
-        when(view){
-            binding.imageOptions->{
+        when (view) {
+            binding.imageOptions -> {
                 activityListeners.visibleOptions()
             }
         }
@@ -94,8 +95,13 @@ class DeliveryFragment(val activityListeners: ActivityListeners) : Fragment(R.la
 
     override fun onItemClick(key: String, item: Any) {
 
+        when(key){
+            "root"->{
+                val deliveryIntent= Intent(context,OrderDetailsActivity::class.java)
+                startActivity(deliveryIntent)
+            }
+        }
     }
-
 
 
 }
