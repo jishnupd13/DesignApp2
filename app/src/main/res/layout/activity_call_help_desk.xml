@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="viewModel"
+            type="com.app.mymainapp.viewmodels.CallHelpDeskViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.calldeskhelp.CallHelpDeskActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_tool_bar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/colorAccent"
+            >
+
+            <ImageView
+                android:id="@+id/image_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/ic_back"
+                android:padding="14dp"
+                android:onClick="@{listener::onClick}"
+                android:contentDescription="@string/app_name"
+                />
+
+            <TextView
+                android:id="@+id/text_order_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/image_back"
+                app:layout_constraintBottom_toBottomOf="@id/image_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/spfbold"
+                android:textColor="@color/white"
+                android:text="Call Help Desk"
+                android:textAlignment="center"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_customer_care"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_tool_bar"
+            >
+
+            <TextView
+                android:id="@+id/text_customer_care_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:textSize="16sp"
+                android:textColor="@color/colorText"
+                android:text="Customer Care"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="16dp"
+                />
+
+            <TextView
+                android:id="@+id/text_customer_care_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/text_customer_care_heading"
+                app:layout_constraintStart_toStartOf="@+id/text_customer_care_heading"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="#676767"
+                android:textSize="12sp"
+                android:text="8400 000 000"
+                />
+
+            <ImageView
+                android:id="@+id/image_phone_call"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:src="@drawable/ic_phone_call"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="16sp"
+                />
+
+            <View
+                android:id="@+id/view_line_customer_care"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_customer_care_number"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="#EDEDED"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_supervisor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_customer_care"
+            >
+
+            <TextView
+                android:id="@+id/text_supervisor_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:textSize="16sp"
+                android:textColor="@color/colorText"
+                android:text="Supervisor"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="16dp"
+                />
+
+            <TextView
+                android:id="@+id/text_supervisor_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/text_supervisor_heading"
+                app:layout_constraintStart_toStartOf="@+id/text_supervisor_heading"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="#676767"
+                android:textSize="12sp"
+                android:text="8400 000 000"
+                />
+
+            <ImageView
+                android:id="@+id/image_phone_call_supervisor"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:src="@drawable/ic_phone_call"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="16sp"
+                />
+
+            <View
+                android:id="@+id/view_line_supervisor"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_supervisor_number"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="#EDEDED"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_manager"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_supervisor"
+            >
+
+            <TextView
+                android:id="@+id/text_manager_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:textSize="16sp"
+                android:textColor="@color/colorText"
+                android:text="Manager"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="16dp"
+                />
+
+            <TextView
+                android:id="@+id/text_manager_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/text_manager_heading"
+                app:layout_constraintStart_toStartOf="@+id/text_manager_heading"
+                android:fontFamily="@font/inter_regular"
+                android:textColor="#676767"
+                android:textSize="12sp"
+                android:text="8400 000 000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="18dp"
+                />
+
+            <ImageView
+                android:id="@+id/image_phone_call_manager"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:src="@drawable/ic_phone_call"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="16sp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <View
+            android:id="@+id/view_bottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_manager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="#EDEDED"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

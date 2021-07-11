@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.viewbinding.library.activity.viewBinding
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.NestedScrollView
@@ -20,7 +21,6 @@ import com.app.mymainapp.ui.adapters.returnitemadapter.ReturnItemAdapter
 import com.app.mymainapp.utils.hide
 import com.app.mymainapp.viewmodels.ReturnItemViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 
 @AndroidEntryPoint
@@ -31,7 +31,6 @@ class ReturnItemActivity : AppCompatActivity(), View.OnClickListener, OnItemClic
 
     private val returnItemList = arrayListOf<ReturnItemModel>()
 
-    private var isAnimationVisible=false
 
     private lateinit var returnItemAdapter: ReturnItemAdapter
 
@@ -51,13 +50,13 @@ class ReturnItemActivity : AppCompatActivity(), View.OnClickListener, OnItemClic
         binding.nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             if (scrollY == v?.getChildAt(0)?.measuredHeight?.minus(v.measuredHeight)) {
 
-                Handler(Looper.getMainLooper()).postDelayed(Runnable {
+                Handler(Looper.getMainLooper()).postDelayed({
                     toggle()
                 }, 400)
             }
 
             if (scrollY < oldScrollY) {
-               binding.layoutPaymentSection.hide()
+                binding.layoutPaymentSection.hide()
             }
         })
 
@@ -91,7 +90,35 @@ class ReturnItemActivity : AppCompatActivity(), View.OnClickListener, OnItemClic
 
     override fun onItemClick(key: String, item: Any) {
 
+        val data = item as ReturnItemModel
+        val position = returnItemList.indexOf(data)
+
+        when (key) {
+            "add" -> {
+                var currentQuantity = data.returnQuantity ?: 0
+                currentQuantity += 1
+                val amount = currentQuantity * 6000.0
+                returnItemList[position].returnQuantity = currentQuantity
+                returnItemList[position].productPrice = amount
+                returnItemAdapter.notifyItemChanged(position)
+            }
+
+            "remove" -> {
+                var currentQuantity = data.returnQuantity ?: 0
+                if (currentQuantity > 1) {
+                    currentQuantity -= 1
+                    val amount = currentQuantity * 6000.0
+                    returnItemList[position].returnQuantity = currentQuantity
+                    returnItemList[position].productPrice = amount
+                    returnItemAdapter.notifyItemChanged(position)
+                } else {
+                    Toast.makeText(this, "Item have at least one item", Toast.LENGTH_LONG).show()
+                }
+
+            }
+        }
     }
+
     private fun toggle() {
 
 
@@ -100,7 +127,6 @@ class ReturnItemActivity : AppCompatActivity(), View.OnClickListener, OnItemClic
         transition.addTarget(binding.layoutPaymentSection)
         TransitionManager.beginDelayedTransition(binding.root as ViewGroup, transition)
         binding.layoutPaymentSection.visibility = View.VISIBLE
-
 
 
     }

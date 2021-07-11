@@ -27,4 +27,6 @@
     <string name="return_item">Return Item</string>
     <string name="return_quantity">Return Quantity</string>
     <string name="submit">Submit</string>
+
+    <string name="content">1.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris consequat.\n 1.2 These Terms and Conditions Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation\n</string>
 </resources>

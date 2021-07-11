@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.delivery.ReturnItemActivity"></activity>
+        <activity android:name=".ui.termsandcondition.TermsAndConditionsActivity"></activity>
+        <activity android:name=".ui.calldeskhelp.CallHelpDeskActivity" />
+        <activity android:name=".ui.delivery.ReturnItemActivity" />
         <activity android:name=".ui.delivery.OrderDetailsActivity" />
         <activity
             android:name=".ui.login.LoginActivity"
